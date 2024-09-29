@@ -1,0 +1,720 @@
+{
+	"info": {
+		"_postman_id": "eef33395-dd1e-400b-a429-03b570958ac6",
+		"name": "Lanchonete",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31739777"
+	},
+	"item": [
+		{
+			"name": "Docker",
+			"item": [
+				{
+					"name": "Cliente",
+					"item": [
+						{
+							"name": "Cadastrar cliente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cpf\": \"1001\",\r\n  \"nome\": \"Paulo\",\r\n  \"email\": \"paulo@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/cliente",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"cliente"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consultar cliente",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/cliente/1001",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"cliente",
+										"1001"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Produto",
+					"item": [
+						{
+							"name": "Criar produto",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"X-bacon\",\r\n  \"categoria\": \"LANCHE\",\r\n  \"preco\": 10,\r\n  \"descricao\": \"Pão, carne, queijo e bacon\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/produto",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"produto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar produtos por categoria",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/produto/Lanche",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"produto",
+										"Lanche"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar produto",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"X-bacon\",\r\n  \"categoria\": \"LANCHE\",\r\n  \"preco\": 10,\r\n  \"descricao\": \"Pão, carne, queijo e bacon\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/produto/e029eab7-c00f-4ef0-8d7c-0c44d8e64a24",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"produto",
+										"e029eab7-c00f-4ef0-8d7c-0c44d8e64a24"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remover produto",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"string\",\r\n  \"categoria\": \"LANCHE\",\r\n  \"preco\": 10,\r\n  \"descricao\": \"X-bacon\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/produto/3fab39f5-3302-45bc-9bf9-d52706bc4b14",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"produto",
+										"3fab39f5-3302-45bc-9bf9-d52706bc4b14"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pedido",
+					"item": [
+						{
+							"name": "Checkout dos pedidos",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"cpfCliente\": \"1001\",\r\n\t\"itens\": [\r\n        {\r\n            \"id\": \"00ed9ed1-1dd3-45ab-9bf2-645825949b23\",\r\n            \"nome\": \"X-bacon\",\r\n            \"categoria\": \"LANCHE\",\r\n            \"preco\": 10.0,\r\n            \"descricao\": \"Pão, carne, queijo e bacon\",\r\n            \"imagem\": null\r\n        }\r\n\t]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/pedido",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"pedido"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar pedidos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/pedido",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"pedido"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar pedido",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"statusPedido\": \"FINALIZADO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/pedido/59e3a9f2-e52e-4bbe-849c-3581688609fb",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"pedido",
+										"59e3a9f2-e52e-4bbe-849c-3581688609fb"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pagamento",
+					"item": [
+						{
+							"name": "Realizar pagamento pedido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"numeroPedido\": \"a23bb9c7-c319-4694-9754-9573b9b8bf26\",\r\n  \"metodoPagamento\": \"PIX\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/pagamento",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"pagamento"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consultar status pagamento",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/pagamento/a23bb9c7-c319-4694-9754-9573b9b8bf26",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"pagamento",
+										"a23bb9c7-c319-4694-9754-9573b9b8bf26"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Webhook",
+					"item": [
+						{
+							"name": "Processar pagamento",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"resource\": \"979f6251-ead0-4efa-945b-79b68ff15c09\",\r\n  \"topic\": \"topic\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080"
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "K8s",
+			"item": [
+				{
+					"name": "Cliente",
+					"item": [
+						{
+							"name": "Cadastrar cliente",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"cpf\": \"1001\",\r\n  \"nome\": \"Paulo\",\r\n  \"email\": \"paulo@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:30000/api/v1/cliente",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30000",
+									"path": [
+										"api",
+										"v1",
+										"cliente"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consultar cliente",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:30000/api/v1/cliente/1001",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30000",
+									"path": [
+										"api",
+										"v1",
+										"cliente",
+										"1001"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Produto",
+					"item": [
+						{
+							"name": "Criar produto",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"X-bacon\",\r\n  \"categoria\": \"LANCHE\",\r\n  \"preco\": 10,\r\n  \"descricao\": \"Pão, carne, queijo e bacon\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:30000/api/v1/produto",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30000",
+									"path": [
+										"api",
+										"v1",
+										"produto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar produtos por categoria",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:30000/api/v1/produto/Lanche",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30000",
+									"path": [
+										"api",
+										"v1",
+										"produto",
+										"Lanche"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar produto",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"X-bacon\",\r\n  \"categoria\": \"LANCHE\",\r\n  \"preco\": 10,\r\n  \"descricao\": \"Pão, carne, queijo e bacon\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:30000/api/v1/produto/e029eab7-c00f-4ef0-8d7c-0c44d8e64a24",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30000",
+									"path": [
+										"api",
+										"v1",
+										"produto",
+										"e029eab7-c00f-4ef0-8d7c-0c44d8e64a24"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remover produto",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"string\",\r\n  \"categoria\": \"LANCHE\",\r\n  \"preco\": 10,\r\n  \"descricao\": \"X-bacon\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:30000/api/v1/produto/3fab39f5-3302-45bc-9bf9-d52706bc4b14",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30000",
+									"path": [
+										"api",
+										"v1",
+										"produto",
+										"3fab39f5-3302-45bc-9bf9-d52706bc4b14"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pedido",
+					"item": [
+						{
+							"name": "Checkout dos pedidos",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"cpfCliente\": \"1001\",\r\n\t\"itens\": [\r\n        {\r\n            \"id\": \"6caaf897-c9db-4aa3-8d87-3e6db469e735\",\r\n            \"nome\": \"X-bacon\",\r\n            \"categoria\": \"LANCHE\",\r\n            \"preco\": 10.0,\r\n            \"descricao\": \"Pão, carne, queijo e bacon\",\r\n            \"imagem\": null\r\n        }\r\n\t]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:30000/api/v1/pedido",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30000",
+									"path": [
+										"api",
+										"v1",
+										"pedido"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar pedidos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:30000/api/v1/pedido",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30000",
+									"path": [
+										"api",
+										"v1",
+										"pedido"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar pedido",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"statusPedido\": \"RECEBIDO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/pedido/979f6251-ead0-4efa-945b-79b68ff15c09",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"pedido",
+										"979f6251-ead0-4efa-945b-79b68ff15c09"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pagamento",
+					"item": [
+						{
+							"name": "Realizar pagamento pedido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"numeroPedido\": \"fa343cc4-2658-40bd-b90f-cba85b6812f6\",\r\n  \"metodoPagamento\": \"PIX\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:30000/api/v1/pagamento",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30000",
+									"path": [
+										"api",
+										"v1",
+										"pagamento"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consultar status pagamento",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:30000/api/v1/pagamento/99b52388-fc75-4e1e-84f4-5453c64ab463",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30000",
+									"path": [
+										"api",
+										"v1",
+										"pagamento",
+										"99b52388-fc75-4e1e-84f4-5453c64ab463"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Webhook",
+					"item": [
+						{
+							"name": "Processar pagamento",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"resource\": \"979f6251-ead0-4efa-945b-79b68ff15c09\",\r\n  \"topic\": \"topic\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:30000",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "30000"
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

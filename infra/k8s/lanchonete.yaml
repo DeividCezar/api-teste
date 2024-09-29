@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lanchonete
+  labels:
+    app: lanchonete
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: lanchonete
+  template:
+    metadata:
+      labels:
+        app: lanchonete
+    spec:
+      containers:
+        - name: lanchonete-api
+          image: luhanlacerda/lanchonete-api
+          ports:
+            - containerPort: 8080
+          env:
+            - name: spring.profiles.active
+              valueFrom:
+                configMapKeyRef:
+                  name: dados
+                  key: ENVIRONMENT
+          livenessProbe:
+            httpGet:
+              path: /swagger-ui/
+              port: 8080
+            initialDelaySeconds: 180
+            periodSeconds: 5
+          resources:
+            requests:
+              memory: "1000m"    # Initial memory request
+              cpu: "1000m"       # Initial CPU request
