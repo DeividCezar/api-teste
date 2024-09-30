@@ -8,7 +8,6 @@ variable "node_role_arn" {
 variable "environment" {
   description = "The environment of the application"
   type        = string
-  # Environments are often things such as development, integration, or production.
   default     = "development"
 }
 
@@ -37,7 +36,7 @@ variable "datatabase_lanchonete_api_name" {
 }
 
 variable "principalArn" {
-  default = "arn:aws:iam::105971623004:role/voclabs"
+  default = "arn:aws:iam::105971623004:role/LabRole"
 }
 
 variable "policyArn" {
