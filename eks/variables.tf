@@ -1,5 +1,5 @@
 variable "lab_role" {
-    default = "arn:aws:iam::317575625452:role/LabRole"
+    default = "arn:aws:iam::105971623004:role/LabRole"
     description = "AWS LabRole"
 }
 
