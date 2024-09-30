@@ -36,7 +36,7 @@ variable "datatabase_lanchonete_api_name" {
 }
 
 variable "principalArn" {
-  default = "arn:aws:iam::105971623004:role/LabRole"
+  default = "arn:aws:iam::105971623004:role/voclabs"
 }
 
 variable "policyArn" {
