@@ -2,7 +2,7 @@ variable "node_role_arn" {
   description = "ARN of the IAM Role that will be associated with the Node Group"
   type        = string
   sensitive   = true
-  default     = "arn:aws:iam::638385053556:role/LabRole"
+  default     = "arn:aws:iam::105971623004:role/LabRole"
 }
 
 variable "environment" {
