@@ -1,17 +1,13 @@
-data "aws_vpc" "vpc" {
-  cidr_block = "172.31.0.0/16"
+data "aws_availability_zone" "us-east-1a" {
+  name = "us-east-1a"
 }
 
-data "aws_subnets" "subnets"{
-    filter {
-        name = "vpc-id"
-        values = [data.aws_vpc.vpc.id]
-    }
+data "aws_availability_zone" "us-east-1b" {
+  name = "us-east-1b"
 }
 
-data "aws_subnet" "subnet" {
-  for_each = toset(data.aws_subnets.subnets.ids)
-  id       = each.value
+data "aws_iam_role" "lab_role" {
+  name = "LabRole"
 }
 
 data "aws_iam_policy" "cluster_policy" {
