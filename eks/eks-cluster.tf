@@ -12,7 +12,3 @@ resource "aws_eks_cluster" "lanchonete-api" {
     authentication_mode = var.accessConfig
   }
 }
-
-data "aws_eks_cluster_auth" "lanchonete-api_auth" {
-  name = aws_eks_cluster.lanchonete-api.name
-}
