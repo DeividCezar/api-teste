@@ -27,8 +27,7 @@ variable "cluster_name" {
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
-  #  default     = "t2.micro"
-  default     = "t3.medium"
+  default     = "t2.micro"
 }
 
 variable "datatabase_lanchonete_api_name" {
@@ -38,7 +37,7 @@ variable "datatabase_lanchonete_api_name" {
 }
 
 variable "principalArn" {
-  default = "arn:aws:iam::257266759997:role/voclabs"
+  default = "arn:aws:iam::105971623004:role/voclabs"
 }
 
 variable "policyArn" {
