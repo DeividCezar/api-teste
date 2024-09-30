@@ -7,8 +7,8 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "lanchonete-bucket"
-    key    = "lanchonete-bucket/application.tfstate"
+    bucket = "lanchonete-lambdas-bucket"
+    key    = "lanchonete-lambdas-bucket/application.tfstate"
     region = "us-east-1"
   }
 }
