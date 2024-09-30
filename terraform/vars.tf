@@ -12,7 +12,7 @@ variable "tags" {
 
 variable "accessKey" {
   description = "Access Key Id"
-  default     = "ASIAZJIVW352GKSSQGPU"
+  default     = "ASIARRLDGUROKFVROSD2"
   type        = string
   sensitive   = true
 }
@@ -20,7 +20,7 @@ variable "accessKey" {
 variable "secretKey" {
   description = "Access Key Secret"
   type        = string
-  default     = "WiHbBMBgpjUFYl7mh9BFvzxDOD985qWRdw1Yi6Qa"
+  default     = "kUcSEs0Rja5VjvG2olVryh6EMMH0XIMsTrCJ9Xj3"
   sensitive   = true
 }
 
@@ -34,6 +34,6 @@ variable "defaultRegion" {
 variable "accountId" {
   description = "Aws Account Id"
   type        = string
-  default     = "638385053556"
+  default     = "105971623004"
   sensitive   = true
 }
