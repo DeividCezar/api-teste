@@ -39,6 +39,7 @@ override.tf.json
 terraform.rc
 terraform.tfvars
 .terraform.lock.hcl
+*.tfplan
 *terraform.plan
 
 # End of https://www.toptal.com/developers/gitignore/api/terraform

@@ -1,5 +1,4 @@
-name: Deploy Database Function
-
+name: Deploy EKS
 on:
   push:
     branches:
@@ -12,12 +11,12 @@ env:
   AWS_REGION: 'us-east-1'
 
 jobs:
-  plan-prod:
-    name: 'Deploy Database Terraform'
+  deploy:
+    name: 'Deploy EKS'
     runs-on: ubuntu-latest
 
     env:
-      TF_WORKING_DIR: './terraform'
+      TF_WORKING_DIR: './eks'
 
     defaults:
       run:
@@ -30,11 +29,6 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
-
-      - name: Terraform fmt
-        id: fmt
-        run: terraform fmt -check
-        continue-on-error: true
 
       - name: Terraform Init
         id: init
