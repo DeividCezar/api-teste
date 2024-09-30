@@ -12,7 +12,7 @@ resource "aws_ecr_repository" "repository_lanchonete-api" {
 # Definição de um recurso de execução local para fazer o push da imagem
 resource "null_resource" "push_image_to_ecr" {
   provisioner "local-exec" {
-    command = "aws ecr get-login-password | docker login --username AWS --password-stdin 638385053556.dkr.ecr.us-east-1.amazonaws.com && docker build -t 638385053556.dkr.ecr.us-east-1.amazonaws.com/lanchonete-api:latest ../../ && docker push 638385053556.dkr.ecr.us-east-1.amazonaws.com/lanchonete-api:latest"
+    command = "aws ecr get-login-password | docker login --username AWS --password-stdin 105971623004.dkr.ecr.us-east-1.amazonaws.com && docker build -t 638385053556.dkr.ecr.us-east-1.amazonaws.com/lanchonete-api:latest ../../ && docker push 638385053556.dkr.ecr.us-east-1.amazonaws.com/lanchonete-api:latest"
   }
   depends_on = [aws_ecr_repository.repository_lanchonete-api]
 }
