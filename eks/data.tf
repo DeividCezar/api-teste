@@ -116,7 +116,7 @@ resource "kubernetes_deployment" "lanchonete_api" {
           name  = "lanchonete-api"
           image = "105971623004.dkr.ecr.us-east-1.amazonaws.com/lanchonete-api:latest"
 
-          ports {
+          port {
             container_port = 80
           }
         }
