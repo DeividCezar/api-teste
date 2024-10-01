@@ -159,5 +159,11 @@ resource "kubernetes_deployment" "lanchonete_api" {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-1" # Substitua pela sua região
+  profile = "lab-academy-profile" # Nome do perfil do AWS CLI
+
+  assume_role {
+    role_arn = "arn:aws:iam::123456789012:role/LabAcademyRole" # ARN do papel a ser assumido
+    session_name = "terraform-session"
+  }
 }
