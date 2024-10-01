@@ -22,13 +22,35 @@ data "aws_subnet" "subnet" {
   id       = each.value
 }
 
+# Definição do Security Group
+resource "aws_security_group" "sg" {
+  name        = "lanchonete-api-sg"
+  description = "Security group for Lanchonete API"
+
+  vpc_id = data.aws_vpc.vpc.id
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]  # Permite acesso de qualquer lugar
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"            # Permite todo o tráfego de saída
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
 resource "aws_eks_cluster" "eks-cluster" {
   name     = "EKS-FIAP"
   role_arn = "arn:aws:iam::105971623004:role/LabRole"
 
   vpc_config {
     subnet_ids         = [for subnet in data.aws_subnet.subnet : subnet.id if subnet.availability_zone != "us-east-1e"]
-    security_group_ids = [aws_security_group.sg.id]
+    security_group_ids = [aws_security_group.sg.id]  # Referência ao Security Group
   }
 
   access_config {
