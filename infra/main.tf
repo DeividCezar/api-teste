@@ -17,8 +17,8 @@ resource "aws_api_gateway_method" "produto_post" {
 
   integration {
     http_method = "POST"
-    type       = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri        = "arn:aws:lambda:us-east-1:105971623004:function:eks"
+    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
+    uri         = var.lambda_arn
   }
 }
 
@@ -36,8 +36,8 @@ resource "aws_api_gateway_method" "produto_get" {
 
   integration {
     http_method = "GET"
-    type       = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri        = "arn:aws:lambda:us-east-1:105971623004:function:eks"
+    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
+    uri         = var.lambda_arn
   }
 }
 
@@ -49,8 +49,8 @@ resource "aws_api_gateway_method" "produto_put" {
 
   integration {
     http_method = "PUT"
-    type       = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri        = "arn:aws:lambda:us-east-1:105971623004:function:eks"
+    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
+    uri         = var.lambda_arn
   }
 }
 
@@ -62,8 +62,8 @@ resource "aws_api_gateway_method" "produto_delete" {
 
   integration {
     http_method = "DELETE"
-    type       = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri        = "arn:aws:lambda:us-east-1:105971623004:function:eks"
+    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
+    uri         = var.lambda_arn
   }
 }
 
@@ -81,8 +81,8 @@ resource "aws_api_gateway_method" "pedido_post" {
 
   integration {
     http_method = "POST"
-    type       = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri        = "arn:aws:lambda:us-east-1:105971623004:function:eks"
+    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
+    uri         = var.lambda_arn
   }
 }
 
@@ -94,8 +94,8 @@ resource "aws_api_gateway_method" "pedido_get" {
 
   integration {
     http_method = "GET"
-    type       = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri        = "arn:aws:lambda:us-east-1:105971623004:function:eks"
+    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
+    uri         = var.lambda_arn
   }
 }
 
@@ -113,8 +113,8 @@ resource "aws_api_gateway_method" "pedido_patch" {
 
   integration {
     http_method = "PATCH"
-    type       = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri        = "arn:aws:lambda:us-east-1:105971623004:function:eks"
+    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
+    uri         = var.lambda_arn
   }
 }
 
@@ -132,8 +132,8 @@ resource "aws_api_gateway_method" "pagamento_post" {
 
   integration {
     http_method = "POST"
-    type       = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri        = "arn:aws:lambda:us-east-1:105971623004:function:eks"
+    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
+    uri         = var.lambda_arn
   }
 }
 
@@ -151,8 +151,8 @@ resource "aws_api_gateway_method" "pagamento_get" {
 
   integration {
     http_method = "GET"
-    type       = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri        = "arn:aws:lambda:us-east-1:105971623004:function:eks"
+    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
+    uri         = var.lambda_arn
   }
 }
 
@@ -170,7 +170,7 @@ resource "aws_api_gateway_deployment" "deployment" {
 }
 
 resource "aws_api_gateway_stage" "stage" {
-  rest_api_id = aws_api_gateway_rest_api.api_gateway.id
-  deployment_id = aws_api_gateway_deployment.deployment.id
-  stage_name = "prod"
+  rest_api_id   = aws_api_gateway_rest_api.api_gateway.id
+  deployment_id  = aws_api_gateway_deployment.deployment.id
+  stage_name     = "prod"
 }
