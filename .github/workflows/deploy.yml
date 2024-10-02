@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      TF_WORKING_DIR: './eks'
+      TF_WORKING_DIR: '.'
 
     defaults:
       run:
