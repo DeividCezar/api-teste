@@ -1,4 +1,5 @@
-name: Deploy EKS
+name: Deploy API Gateway
+
 on:
   push:
     branches:
@@ -12,37 +13,34 @@ env:
 
 jobs:
   deploy:
-    name: 'Deploy EKS'
     runs-on: ubuntu-latest
 
     env:
-      TF_WORKING_DIR: '.'
+      TF_WORKING_DIR: './infra'
 
     defaults:
       run:
         shell: bash
-        working-directory: ${{ env.TF_WORKING_DIR }}
+        working-directory: ${{ env.TF_WORKING_DIR }}  
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
 
       - name: Terraform Init
-        id: init
         run: terraform init
 
+      - name: Terraform Fmt
+        run: terraform fmt -check -no-color  
+
       - name: Terraform Validate
-        id: validate
-        run: terraform validate -no-color
+        run: terraform validate -no-color  
 
       - name: Terraform Plan
-        id: plan
-        run: TF_LOG=DEBUG terraform plan -out terraform.plan
-        continue-on-error: true
+        run: terraform plan -out terraform.plan
 
-      - name: Terraform Apply
-        id: apply
-        run: terraform apply terraform.plan
+      - name: Terraform Apply 
+        run: terraform apply -auto-approve
