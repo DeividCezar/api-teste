@@ -14,12 +14,14 @@ resource "aws_api_gateway_method" "produto_post" {
   resource_id   = aws_api_gateway_resource.produto.id
   http_method   = "POST"
   authorization = "NONE"
+}
 
-  integration {
-    http_method = "POST"
-    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri         = var.lambda_arn
-  }
+resource "aws_api_gateway_integration" "produto_post_integration" {
+  rest_api_id = aws_api_gateway_rest_api.api_gateway.id
+  resource_id = aws_api_gateway_resource.produto.id
+  http_method = aws_api_gateway_method.produto_post.http_method
+  type        = "AWS_PROXY"
+  uri         = "arn:aws:lambda:us-east-1:105971623004:function:eks"
 }
 
 resource "aws_api_gateway_resource" "produto_categoria" {
@@ -33,12 +35,14 @@ resource "aws_api_gateway_method" "produto_get" {
   resource_id   = aws_api_gateway_resource.produto_categoria.id
   http_method   = "GET"
   authorization = "NONE"
+}
 
-  integration {
-    http_method = "GET"
-    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri         = var.lambda_arn
-  }
+resource "aws_api_gateway_integration" "produto_get_integration" {
+  rest_api_id = aws_api_gateway_rest_api.api_gateway.id
+  resource_id = aws_api_gateway_resource.produto_categoria.id
+  http_method = aws_api_gateway_method.produto_get.http_method
+  type        = "AWS_PROXY"
+  uri         = "arn:aws:lambda:us-east-1:105971623004:function:eks"
 }
 
 resource "aws_api_gateway_method" "produto_put" {
@@ -46,12 +50,14 @@ resource "aws_api_gateway_method" "produto_put" {
   resource_id   = aws_api_gateway_resource.produto_categoria.id
   http_method   = "PUT"
   authorization = "NONE"
+}
 
-  integration {
-    http_method = "PUT"
-    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri         = var.lambda_arn
-  }
+resource "aws_api_gateway_integration" "produto_put_integration" {
+  rest_api_id = aws_api_gateway_rest_api.api_gateway.id
+  resource_id = aws_api_gateway_resource.produto_categoria.id
+  http_method = aws_api_gateway_method.produto_put.http_method
+  type        = "AWS_PROXY"
+  uri         = "arn:aws:lambda:us-east-1:105971623004:function:eks"
 }
 
 resource "aws_api_gateway_method" "produto_delete" {
@@ -59,12 +65,14 @@ resource "aws_api_gateway_method" "produto_delete" {
   resource_id   = aws_api_gateway_resource.produto_categoria.id
   http_method   = "DELETE"
   authorization = "NONE"
+}
 
-  integration {
-    http_method = "DELETE"
-    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri         = var.lambda_arn
-  }
+resource "aws_api_gateway_integration" "produto_delete_integration" {
+  rest_api_id = aws_api_gateway_rest_api.api_gateway.id
+  resource_id = aws_api_gateway_resource.produto_categoria.id
+  http_method = aws_api_gateway_method.produto_delete.http_method
+  type        = "AWS_PROXY"
+  uri         = "arn:aws:lambda:us-east-1:105971623004:function:eks"
 }
 
 resource "aws_api_gateway_resource" "pedido" {
@@ -78,12 +86,14 @@ resource "aws_api_gateway_method" "pedido_post" {
   resource_id   = aws_api_gateway_resource.pedido.id
   http_method   = "POST"
   authorization = "NONE"
+}
 
-  integration {
-    http_method = "POST"
-    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri         = var.lambda_arn
-  }
+resource "aws_api_gateway_integration" "pedido_post_integration" {
+  rest_api_id = aws_api_gateway_rest_api.api_gateway.id
+  resource_id = aws_api_gateway_resource.pedido.id
+  http_method = aws_api_gateway_method.pedido_post.http_method
+  type        = "AWS_PROXY"
+  uri         = "arn:aws:lambda:us-east-1:105971623004:function:eks"
 }
 
 resource "aws_api_gateway_method" "pedido_get" {
@@ -91,12 +101,14 @@ resource "aws_api_gateway_method" "pedido_get" {
   resource_id   = aws_api_gateway_resource.pedido.id
   http_method   = "GET"
   authorization = "NONE"
+}
 
-  integration {
-    http_method = "GET"
-    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri         = var.lambda_arn
-  }
+resource "aws_api_gateway_integration" "pedido_get_integration" {
+  rest_api_id = aws_api_gateway_rest_api.api_gateway.id
+  resource_id = aws_api_gateway_resource.pedido.id
+  http_method = aws_api_gateway_method.pedido_get.http_method
+  type        = "AWS_PROXY"
+  uri         = "arn:aws:lambda:us-east-1:105971623004:function:eks"
 }
 
 resource "aws_api_gateway_resource" "pedido_id" {
@@ -110,12 +122,14 @@ resource "aws_api_gateway_method" "pedido_patch" {
   resource_id   = aws_api_gateway_resource.pedido_id.id
   http_method   = "PATCH"
   authorization = "NONE"
+}
 
-  integration {
-    http_method = "PATCH"
-    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri         = var.lambda_arn
-  }
+resource "aws_api_gateway_integration" "pedido_patch_integration" {
+  rest_api_id = aws_api_gateway_rest_api.api_gateway.id
+  resource_id = aws_api_gateway_resource.pedido_id.id
+  http_method = aws_api_gateway_method.pedido_patch.http_method
+  type        = "AWS_PROXY"
+  uri         = "arn:aws:lambda:us-east-1:105971623004:function:eks"
 }
 
 resource "aws_api_gateway_resource" "pagamento" {
@@ -129,12 +143,14 @@ resource "aws_api_gateway_method" "pagamento_post" {
   resource_id   = aws_api_gateway_resource.pagamento.id
   http_method   = "POST"
   authorization = "NONE"
+}
 
-  integration {
-    http_method = "POST"
-    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri         = var.lambda_arn
-  }
+resource "aws_api_gateway_integration" "pagamento_post_integration" {
+  rest_api_id = aws_api_gateway_rest_api.api_gateway.id
+  resource_id = aws_api_gateway_resource.pagamento.id
+  http_method = aws_api_gateway_method.pagamento_post.http_method
+  type        = "AWS_PROXY"
+  uri         = "arn:aws:lambda:us-east-1:105971623004:function:eks"
 }
 
 resource "aws_api_gateway_resource" "pagamento_id" {
@@ -148,12 +164,14 @@ resource "aws_api_gateway_method" "pagamento_get" {
   resource_id   = aws_api_gateway_resource.pagamento_id.id
   http_method   = "GET"
   authorization = "NONE"
+}
 
-  integration {
-    http_method = "GET"
-    type        = "AWS_PROXY"  # Alterado para AWS_PROXY
-    uri         = var.lambda_arn
-  }
+resource "aws_api_gateway_integration" "pagamento_get_integration" {
+  rest_api_id = aws_api_gateway_rest_api.api_gateway.id
+  resource_id = aws_api_gateway_resource.pagamento_id.id
+  http_method = aws_api_gateway_method.pagamento_get.http_method
+  type        = "AWS_PROXY"
+  uri         = "arn:aws:lambda:us-east-1:105971623004:function:eks"
 }
 
 resource "aws_api_gateway_deployment" "deployment" {
@@ -170,7 +188,7 @@ resource "aws_api_gateway_deployment" "deployment" {
 }
 
 resource "aws_api_gateway_stage" "stage" {
-  rest_api_id   = aws_api_gateway_rest_api.api_gateway.id
+  rest_api_id    = aws_api_gateway_rest_api.api_gateway.id
   deployment_id  = aws_api_gateway_deployment.deployment.id
   stage_name     = "prod"
 }
