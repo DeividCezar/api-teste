@@ -60,3 +60,9 @@ variable "db_identifier" {
   type        = string
   default     = "lanchonete-db"
 }
+
+variable "cluster_sg_id" {
+  description = "Security Group ID for the EKS Cluster"
+  type        = string
+  default     = "sg-0ab6dfe9ac76fb2ea"
+}
