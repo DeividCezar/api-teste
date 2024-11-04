@@ -25,8 +25,8 @@ resource "aws_security_group" "lanchonete_db_sg" {
   }
 }
 
-resource "aws_db_instance" "lanchonete_database" {
-  db_name              = "lanchonete-db-produto"
+resource "aws_db_instance" "lanchonete_db_produto" {
+  db_name              = "lanchonete_db_produto"
   identifier           = "lanchonete-db-produto"
   allocated_storage    = 20
   engine               = "mysql"
@@ -35,7 +35,7 @@ resource "aws_db_instance" "lanchonete_database" {
   username             = var.db_username
   password             = var.db_password
   skip_final_snapshot  = true
-
+  
   vpc_security_group_ids = [aws_security_group.lanchonete_db_sg.id]
   db_subnet_group_name   = aws_db_subnet_group.lanchonete_db_subnet_group.name
 }
