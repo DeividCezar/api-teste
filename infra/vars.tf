@@ -21,15 +21,15 @@ variable "cluster_sg_id" {
 }
 
 variable "db_username" {
-  description = "The username for the RDS instance"
+  description = "Username RDS"
   type        = string
   sensitive   = true
   default     = "root"
 }
 
 variable "db_password" {
-  description = "The password for the RDS instance"
+  description = "Password RDS"
   type        = string
   sensitive   = true
-  default     = "rootPass123456"
+  default     = "root1234"
 }

@@ -39,3 +39,15 @@ resource "aws_db_instance" "lanchonete_db_produto" {
   vpc_security_group_ids = [aws_security_group.lanchonete_db_sg.id]
   db_subnet_group_name   = aws_db_subnet_group.lanchonete_db_subnet_group.name
 }
+
+resource "null_resource" "init_db" {
+  provisioner "local-exec" {
+    command = <<EOT
+      mysql -h ${aws_db_instance.lanchonete_db_produto.address} \
+            -u ${var.db_username} -p${var.db_password} \
+            lanchonete_db_produto < ./scripts/produto.sql
+    EOT
+  }
+
+  depends_on = [aws_db_instance.lanchonete_db_produto]
+}
