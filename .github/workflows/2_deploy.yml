@@ -1,4 +1,4 @@
-name: Deploy API Gateway
+name: Deploy RDS
 
 on:
   push:
@@ -31,7 +31,10 @@ jobs:
         uses: hashicorp/setup-terraform@v2
 
       - name: Terraform Init
-        run: terraform init 
+        run: terraform init
+
+      - name: Terraform Fmt
+        run: terraform fmt -check -no-color  
 
       - name: Terraform Validate
         run: terraform validate -no-color  
