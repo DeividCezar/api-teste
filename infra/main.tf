@@ -45,7 +45,7 @@ resource "null_resource" "init_db" {
     command = <<EOT
       mysql -h ${aws_db_instance.lanchonete_db_produto.address} \
             -u ${var.db_username} -p${var.db_password} \
-            lanchonete_db_produto < ./scripts/produto.sql
+            lanchonete_db_produto < ../scripts/produto.sql
     EOT
   }
 
