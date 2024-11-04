@@ -1,20 +1,8 @@
-resource "aws_subnet" "lanchonete_database_subnet_az_1" {
-  vpc_id            = var.vpc_id
-  cidr_block        = var.subnet_database_1_cidr_block
-  availability_zone = var.subnet_availability_zone_az_1
-}
-
-resource "aws_subnet" "lanchonete_database_subnet_az_2" {
-  vpc_id            = var.vpc_id
-  cidr_block        = var.subnet_database_2_cidr_block
-  availability_zone = var.subnet_availability_zone_az_2
-}
-
 resource "aws_db_subnet_group" "lanchonete_db_subnet_group" {
   name       = "lanchonete-db-subnet-group"
   subnet_ids = [
-    aws_subnet.lanchonete_database_subnet_az_1.id,
-    aws_subnet.lanchonete_database_subnet_az_2.id
+    subnet-026d3698d772ed6f3,
+    subnet-091f75ffadaffc1ee
   ]
 }
 
