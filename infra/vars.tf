@@ -14,11 +14,6 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "cluster_sg_id" {
-  description = "Security Group ID"
-  type        = string
-}
-
 variable "db_username" {
   description = "Username RDS"
   type        = string
