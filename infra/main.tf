@@ -1,14 +1,11 @@
 resource "aws_db_subnet_group" "lanchonete_db_subnet_group" {
   name       = "lanchonete-db-subnet-group"
-  subnet_ids = [
-    "subnet-026d3698d772ed6f3",
-    "subnet-091f75ffadaffc1ee"
-  ]
+  subnet_ids = var.subnet_ids
 }
 
 resource "aws_security_group" "lanchonete_db_sg" {
   name        = "lanchonete_db_sg"
-  description = "Allow traffic to RDS instance"
+  description = "Acesso ao RDS PostgreSQL"
   vpc_id      = var.vpc_id
 
   ingress {
@@ -29,15 +26,13 @@ resource "aws_security_group" "lanchonete_db_sg" {
 }
 
 resource "aws_db_instance" "lanchonete_database" {
+  db_name              = "lanchonete_produto_db"
   allocated_storage    = 20
   engine               = "mysql"
-  engine_version       = "8.0.35"
+  engine_version       = "8.0.39"
   instance_class       = "db.t3.micro"
-  identifier           = var.db_identifier
   username             = var.db_username
   password             = var.db_password
-  db_name              = var.db_name
-  parameter_group_name = "default.mysql8.0"
   skip_final_snapshot  = true
 
   vpc_security_group_ids = [aws_security_group.lanchonete_db_sg.id]
