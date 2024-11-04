@@ -12,9 +12,7 @@ resource "aws_security_group" "lanchonete_db_sg" {
     from_port       = 3306
     to_port         = 3306
     protocol        = "tcp"
-    security_groups = [
-      var.cluster_sg_id
-    ]
+    security_groups = ["0.0.0.0/0"]
   }
 
   egress {
