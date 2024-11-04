@@ -17,7 +17,6 @@ variable "vpc_id" {
 variable "cluster_sg_id" {
   description = "Security Group ID"
   type        = string
-  default     = "sg-0ab6dfe9ac76fb2ea"
 }
 
 variable "db_username" {
