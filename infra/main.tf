@@ -26,7 +26,8 @@ resource "aws_security_group" "lanchonete_db_sg" {
 }
 
 resource "aws_db_instance" "lanchonete_database" {
-  db_name              = "lanchonete_produto_db"
+  db_name              = "lanchonete_db_produto"
+  identifier           = "lanchonete_db_produto"
   allocated_storage    = 20
   engine               = "mysql"
   engine_version       = "8.0.39"
